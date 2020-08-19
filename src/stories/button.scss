@@ -1,0 +1,60 @@
+.storybook-button {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+
+// This should be in central file and is generated from the style file from the designers
+// For story book we generate all of them
+$color--porsche: red;
+$color--lufthansa: blue;
+
+$primaryColor: (
+  "porsche": #db0700,
+  "milesandmore": #000d86,
+  "default": #888888,
+);
+
+$dark1: (
+  "porsche": #2c2c2c,
+  "milesandmore": #0f0f0f,
+  "default": #525252,
+);
+
+// For the real app just one
+// yarn build -porsche
+// $primaryColor: (
+//   "porsche": #db0700,
+// );
+
+@each $themeName, $_ in $primaryColor {
+  .storybook-button--#{$themeName} {
+    background-color: map-get($primaryColor, $themeName);
+    border: solid 1px map-get($dark1, $themeName);
+  }
+}
+
+.storybook-button--primary {
+  color: white;
+}
+.storybook-button--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.storybook-button--small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+.storybook-button--medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+.storybook-button--large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
