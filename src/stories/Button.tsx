@@ -35,7 +35,6 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       type="button"
       className={`storybook-button storybook-button--primary storybook-button--${theme}`}
-      {...props}
     >
       {label}
     </button>
